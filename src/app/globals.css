@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Rotating badge text */
+@keyframes badge-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.badge-ring {
+  animation: badge-spin 14s linear infinite;
+}
+
+/* Fade-up animation for hero content */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.9s ease both;
+}
+
+.animate-fade-up-delay-1 { animation: fadeUp 0.9s 0.15s ease both; }
+.animate-fade-up-delay-2 { animation: fadeUp 0.9s 0.30s ease both; }
+.animate-fade-up-delay-3 { animation: fadeUp 0.9s 0.45s ease both; }
+.animate-fade-up-delay-4 { animation: fadeUp 0.9s 0.60s ease both; }
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #ffffff;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Pill tags */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #383838;
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #d0d0d0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: default;
+}
+
+.pill:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+  border-color: #ffffff;
+}
+
+/* CTA button */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ffffff;
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 0.25s, color 0.25s;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+.cta-btn:hover .cta-arrow circle {
+  fill: #0d0d0d;
+}
+
+.cta-btn:hover .cta-arrow path {
+  stroke: #ffffff;
+}
