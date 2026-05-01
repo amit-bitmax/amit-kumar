@@ -8,7 +8,10 @@ import OrbitalSkills from "@/components/common/OrbitalSkills";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 md:px-12 lg:px-24 overflow-hidden bg-[#0d0d0d]">
+    <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 lg:px-12 overflow-hidden">
+      {/* Premium gradient: pearl white → soft lavender → deep indigo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5ff] via-[#c4b5fd]/70 to-[#3b0764] z-0" />
+
       <AnimatedGridPattern
         numSquares={50}
         maxOpacity={0.15}
@@ -22,12 +25,11 @@ export default function HeroSection() {
         <div className="flex flex-col items-start gap-8">
           {/* Headline */}
           <div className="animate-fade-up max-w-4xl">
-            <h2 className="text-[clamp(1.8rem,7vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-white">
-              Blending creativity &amp; strategy to build brands &amp;{" "}
-              <span className="font-light text-[#888] underline underline-offset-4 decoration-[#555] italic">
-                design websites
+            <h2 className="text-[clamp(1.8rem,7vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-[#0f172a]">
+              Hi, I’m Amit Transforming Ideas into
+              <span className="font-light text-[#1e3a8a] underline-offset-4 decoration-[#3b82f6] italic">
+                Powerful Web Experiences
               </span>
-              .
             </h2>
           </div>
 
@@ -40,7 +42,7 @@ export default function HeroSection() {
 
           {/* Description + CTA */}
           <div className="animate-fade-up-delay-3 flex flex-col items-start gap-8 max-w-md mt-6">
-            <p className="text-[15px] text-[#8a8a8a] leading-relaxed">
+            <p className="text-[15px] text-white/80 leading-relaxed">
               {HERO_DESCRIPTION}
             </p>
             <div className="flex flex-wrap items-center gap-8">
@@ -63,22 +65,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── Background Gradients & Glows ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Top/Bottom Subtle Gradient Overlays (#4C51BF) */}
-        <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-[#4C51BF]/10 to-transparent z-0" />
-        <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#4C51BF]/10 via-transparent to-transparent z-0" />
 
-        {/* ── Diagonal Light Beam Effect (#4C51BF) ── */}
-        <div className="absolute top-[20%] -left-[30%] w-[160%] h-[400px] bg-gradient-to-r from-transparent via-[#4C51BF]/15 to-transparent blur-[160px] -rotate-12 z-0" />
-        <div className="absolute top-[25%] -left-[20%] w-[140%] h-[150px] bg-gradient-to-r from-transparent via-[#4C51BF]/25 to-transparent blur-[120px] -rotate-12 z-0 opacity-50" />
-
-        {/* Support Glow behind OrbitalSkills */}
-        <div className="absolute top-1/2 left-[70%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#4C51BF]/[0.08] blur-[120px]" />
-
-        {/* Bottom Black Fade for grounding */}
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#0d0d0d] via-[#0d0d0d]/90 to-transparent z-10" />
-      </div>
     </section>
   );
 }

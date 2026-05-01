@@ -9,11 +9,12 @@ export default function Footer() {
     <footer className="relative w-full overflow-hidden">
       {/* The Gradient Background */}
       <div className="absolute inset-0 bg-[#f5f5f0] z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-600 via-blue-500/20 to-transparent z-1" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5ff] via-[#c4b5fd]/70 to-[#3b0764] z-0" />
 
-      <div className="relative z-10 px-6 lg:px-12 pt-32 pb-12">
+
+      <div className="relative z-10 px-6 lg:px-12 pt-10 pb-10">
         {/* Top Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 mb-40">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 mb-10">
 
           {/* Menu */}
           <div className="flex flex-col gap-6">
@@ -60,14 +61,14 @@ export default function Footer() {
         </div>
 
         {/* Huge Branding Text */}
-        <div className="relative mb-20 pointer-events-none">
+        <div className="relative mb-10 pointer-events-none">
           <h2 className="text-[12vw] font-[900] text-black leading-none tracking-[-0.05em] uppercase text-center opacity-90">
             AMIT KUMAR
           </h2>
         </div>
 
         {/* Bottom Credits */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-black/5 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-black/5 gap-6">
           <p className="text-black/40 text-sm font-bold tracking-tight">
             ©{currentYear} Amit Kumar
           </p>

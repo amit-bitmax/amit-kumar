@@ -2,10 +2,10 @@ import type { NavItem } from "@/types";
 
 // ─── Navigation ─────────────────────────────────────────────────────────────
 export const NAV_ITEMS: NavItem[] = [
-  { label: "HOME",       href: "/",        hasDropdown: true  },
-  { label: "PAGES",      href: "/pages",   hasDropdown: true  },
-  { label: "WORKS",      href: "/works",   hasDropdown: true  },
-  { label: "BLOGS",      href: "/blogs",   hasDropdown: true  },
+  { label: "HOME", href: "/", hasDropdown: true },
+  { label: "PAGES", href: "/pages", hasDropdown: true },
+  { label: "WORKS", href: "/works", hasDropdown: true },
+  { label: "BLOGS", href: "/blogs", hasDropdown: true },
   { label: "CONTACT US", href: "/contact", hasDropdown: false },
 ];
 
@@ -21,7 +21,7 @@ export const BADGE_TEXT =
   "MARKETING · TRENING · BRANDING · MARKETING · TRENING ·";
 
 export const HERO_DESCRIPTION =
-  "We build brands that shape places and move people. We partner with bold thinkers who see design as a catalyst for change — visionaries who shape places and redefine spaces.";
+  "I’m a full-stack developer who loves building fast, reliable, and beautiful web applications. I combine clean code with modern design to create seamless user experiences.";
 
 // ─── Experience ─────────────────────────────────────────────────────────────
 export const EXPERIENCE_DATA = [

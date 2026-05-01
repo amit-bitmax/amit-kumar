@@ -21,7 +21,7 @@ export default function DockMenu() {
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="mx-auto flex h-14 md:h-16 items-end gap-2 sm:gap-3 md:gap-5 rounded-2xl md:rounded-3xl bg-white/5 px-3 sm:px-4 md:px-6 pb-2 backdrop-blur-sm border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] pointer-events-auto overflow-x-auto overflow-y-hidden no-scrollbar max-w-full"
+        className="mx-auto flex h-14 md:h-16 items-end gap-2 sm:gap-3 md:gap-5 rounded-2xl md:rounded-3xl bg-white/5 px-3 sm:px-4 md:px-6 pb-1 backdrop-blur-sm border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] pointer-events-auto overflow-x-auto overflow-y-hidden no-scrollbar max-w-full"
       >
         {DOCK_ICONS.map((icon) => (
           <DockIcon key={icon.id} mouseX={mouseX} Icon={icon.Icon} label={icon.label} />
@@ -57,7 +57,7 @@ function DockIcon({ mouseX, Icon, label }: { mouseX: any; Icon: React.ElementTyp
       className="group relative flex items-center justify-center transition-all cursor-pointer"
     >
       <div className="relative w-full h-full p-2 flex items-center justify-center">
-        <Icon className="w-10 h-10 sm:w-10 sm:h-10 md:w-full md:h-full text-white/60 group-hover:text-white drop-shadow-md group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.7)] transition-all duration-300" />
+        <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-full md:h-full text-white/60 group-hover:text-white drop-shadow-md group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.7)] transition-all duration-300" />
       </div>
 
       {/* Tooltip */}

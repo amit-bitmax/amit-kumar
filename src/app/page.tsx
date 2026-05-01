@@ -16,20 +16,20 @@ export default function Home() {
     <main className="min-h-screen bg-[#0d0d0d]">
       <Navbar />
       <HeroSection />
-      
+
       {/* Sticky Reveal Section */}
       <AboutBanner />
 
       {/* Following sections cover the banner as they scroll up */}
       <div className="relative z-10 bg-[#0d0d0d] shadow-[0_-50px_100px_rgba(0,0,0,0.5)]">
         <ServicesSection />
-        <WorkExperience />
-        <ProjectsSection />
-        <StackedCards />
-        <Gallery />
-        <ApproachSection />
-        <BlogSection />
-        <ZoomGridSection />
+        {/* <WorkExperience /> */}
+        {/* <ProjectsSection /> */}
+        {/* <StackedCards /> */}
+        {/* <Gallery /> */}
+        {/* <ApproachSection /> */}
+        {/* <BlogSection /> */}
+        {/* <ZoomGridSection /> */}
       </div>
     </main>
   );

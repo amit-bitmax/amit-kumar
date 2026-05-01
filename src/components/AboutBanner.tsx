@@ -1,15 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useRef, useState, useCallback } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useCallback } from "react";
 import Image from "next/image";
-
-// Declare global for canvas-confetti loaded via CDN
-declare global {
-  interface Window {
-    confetti: any;
-  }
-}
+import confetti from "canvas-confetti";
 
 export default function AboutBanner() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,42 +18,41 @@ export default function AboutBanner() {
 
   // Trigger Celebration Function using canvas-confetti
   const triggerCelebration = useCallback(() => {
-    if (typeof window !== "undefined" && window.confetti) {
-      // First burst from bottom-left aiming top-middle
-      window.confetti({
-        particleCount: 150,
-        spread: 40,
-        origin: { x: 0, y: 1.0 },
-        colors: ["#f57451", "#ffffff", "#c3e64b", "#3b82f6"],
-        angle: 45, // Aim up-right
-        gravity: 0.4,
-        scalar: 0.9,
-        startVelocity: 100,
-        ticks: 200
-      });
+    // First burst from bottom-left aiming top-middle
+    confetti({
+      particleCount: 150,
+      spread: 40,
+      origin: { x: 0, y: 1.0 },
+      colors: ["#f57451", "#ffffff", "#c3e64b", "#3b82f6"],
+      angle: 45, // Aim up-right
+      gravity: 0.4,
+      scalar: 0.9,
+      startVelocity: 100,
+      ticks: 200
+    });
 
-      // Second burst from bottom-right aiming top-middle
-      window.confetti({
-        particleCount: 150,
-        spread: 40,
-        origin: { x: 1, y: 1.0 },
-        colors: ["#f57451", "#ffffff", "#c3e64b", "#3b82f6"],
-        angle: 135, // Aim up-left
-        gravity: 0.4,
-        scalar: 0.9,
-        startVelocity: 100,
-        ticks: 200
-      });
-    }
+    // Second burst from bottom-right aiming top-middle
+    confetti({
+      particleCount: 150,
+      spread: 40,
+      origin: { x: 1, y: 1.0 },
+      colors: ["#f57451", "#ffffff", "#c3e64b", "#3b82f6"],
+      angle: 135, // Aim up-left
+      gravity: 0.4,
+      scalar: 0.9,
+      startVelocity: 100,
+      ticks: 200
+    });
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-[120vh]">
-      {/* Sticky Content Layer */}
-      <div className="sticky top-0 h-screen w-full bg-[#f5f5f0] flex flex-col items-center justify-center overflow-hidden">
+    <div ref={containerRef} className="relative h-full">
 
+      {/* Sticky Content Layer */}
+      <div className="sticky top-0 h-screen w-full bg-[#f5f5f0] flex flex-col items-center justify-between overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5ff] via-[#c4b5fd]/70 to-[#3b0764] z-0" />
         {/* Main Heading Background Layer (PROCESS) */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-between pointer-events-none select-none pt-10 px-4">
           <motion.h1
             style={{ opacity, scale }}
             className="text-[22vw] font-[900] text-black leading-none tracking-[-0.08em] text-center uppercase"
@@ -71,12 +64,12 @@ export default function AboutBanner() {
         {/* The Portrait (Centered Silhouette) */}
         <motion.div
           style={{ opacity, scale: useTransform(scrollYProgress, [0, 0.5], [1, 1.1]) }}
-          className="relative z-10 w-[70%] md:w-[40%] aspect-[3/4] max-w-lg mt-20"
+          className="relative z-10 w-[70%] md:w-[40%] aspect-[3/4] max-w-lg"
         >
           {/* Vibrant Orange Gradient Overlay from ref */}
-          <div className="absolute inset-x-0 bottom-0 h-2/3 z-20 bg-gradient-to-t from-[#f57451] to-transparent opacity-100" />
+          {/* <div className="absolute inset-x-0 bottom-0 h-2/3 z-20 bg-gradient-to-t from-[#f57451] to-transparent opacity-100" /> */}
 
-          <div className="relative w-full h-full grayscale brightness-50 rounded-b-full overflow-hidden border-b-8 border-[#f57451]">
+          {/* <div className="relative w-full h-full grayscale brightness-50 rounded-b-full overflow-hidden border-b-8 border-[#f57451]">
             <Image
               src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"
               alt="About Portrait"
@@ -84,7 +77,7 @@ export default function AboutBanner() {
               className="object-cover object-top"
               priority
             />
-          </div>
+          </div> */}
 
           {/* "my" Text Overlay (Clickable Trigger) */}
           <motion.button

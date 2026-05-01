@@ -118,20 +118,28 @@ const ServiceCard = ({
           </div>
         </div>
 
-        {/* The Floating 3D Object with parallax effect */}
+        {/* Bubble — top-left (small, faded) */}
         <motion.div
-          style={{
-            x: objTranslateX,
-            y: objTranslateY,
-          }}
+          style={{ x: objTranslateX, y: objTranslateY }}
+          className={`absolute -top-8 -left-8 w-36 h-36 md:w-44 md:h-44 pointer-events-none z-0 ${service.isDark ? 'mix-blend-screen opacity-40' : 'mix-blend-multiply opacity-30'}`}
+        >
+          <div
+            className="w-full h-full bg-cover bg-center rounded-full filter blur-[3px]"
+            style={{ backgroundImage: `url(${service.assetUrl})` }}
+          />
+        </motion.div>
+
+        {/* Bubble — bottom-right (large, main) */}
+        <motion.div
+          style={{ x: objTranslateX, y: objTranslateY }}
           className={`absolute -bottom-10 -right-10 w-64 h-64 md:w-80 md:h-80 pointer-events-none z-0 ${service.isDark ? 'mix-blend-screen opacity-80' : 'mix-blend-multiply'}`}
         >
-          <div 
+          <div
             className="w-full h-full bg-cover bg-center rounded-full opacity-60 filter blur-[2px]"
             style={{ backgroundImage: `url(${service.assetUrl})` }}
           />
         </motion.div>
-        
+
         {/* Subtle Glare Effect overlay */}
         <motion.div
           className="absolute inset-0 pointer-events-none z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -150,8 +158,96 @@ const ServiceCard = ({
 
 export default function ServicesSection() {
   return (
-    <section className="bg-[#0d0d0d] text-white py-24 px-4 md:px-8 xl:px-16 border-t border-white/10 relative z-10">
-      <div className="max-w-[1600px] mx-auto">
+    <section className="bg-[#0d0d0d] text-white py-24 px-6 lg:px-12 border-t border-white/10 relative z-10 overflow-hidden">
+
+      {/* ── Lightning / Bijli Background ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Dark base */}
+        <div className="absolute inset-0 bg-[#07080f]" />
+
+        {/* Electric glow halos behind lightning */}
+        <div className="absolute top-[10%] left-[15%] w-[300px] h-[600px] bg-yellow-300/10 blur-[80px] rotate-[-20deg]" />
+        <div className="absolute top-[20%] right-[10%] w-[200px] h-[500px] bg-violet-400/10 blur-[60px] rotate-[15deg]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-blue-500/10 blur-[80px]" />
+
+        {/* SVG Lightning Bolts */}
+        <svg
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          viewBox="0 0 1440 700"
+        >
+          <defs>
+            {/* Outer glow filter */}
+            <filter id="lightning-glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="6" result="blur1" />
+              <feGaussianBlur stdDeviation="14" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="lightning-glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="blur1" />
+              <feGaussianBlur stdDeviation="8" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur2" />
+                <feMergeNode in="blur1" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Main left lightning bolt — bright yellow-white */}
+          <polyline
+            filter="url(#lightning-glow)"
+            points="220,0 180,140 230,140 140,320 200,320 80,700"
+            fill="none"
+            stroke="rgba(255,240,100,0.85)"
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+          />
+          {/* Thin branch from main bolt */}
+          <polyline
+            filter="url(#lightning-glow-soft)"
+            points="180,140 230,220 210,220 260,310"
+            fill="none"
+            stroke="rgba(255,255,180,0.5)"
+            strokeWidth="1.2"
+          />
+
+          {/* Right side bolt — violet-blue tone */}
+          <polyline
+            filter="url(#lightning-glow)"
+            points="1260,0 1300,160 1240,160 1320,400 1260,400 1380,700"
+            fill="none"
+            stroke="rgba(180,140,255,0.75)"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          {/* Right branch */}
+          <polyline
+            filter="url(#lightning-glow-soft)"
+            points="1300,160 1350,260 1320,260 1370,360"
+            fill="none"
+            stroke="rgba(200,180,255,0.4)"
+            strokeWidth="1"
+          />
+
+          {/* Center faint distant bolt */}
+          <polyline
+            filter="url(#lightning-glow-soft)"
+            points="700,0 680,100 720,100 660,250 700,250 630,480"
+            fill="none"
+            stroke="rgba(150,200,255,0.25)"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+
+      <div>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <div className="flex gap-4 items-start">
             <div className="w-1.5 h-1.5 rounded-full bg-white mt-2" />
@@ -159,7 +255,7 @@ export default function ServicesSection() {
               Services
             </span>
           </div>
-          
+
           <div className="flex-1 md:pl-20">
             <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter leading-none">
               <span className="text-white/60">OUR</span>

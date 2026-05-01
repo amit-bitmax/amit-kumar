@@ -6,8 +6,8 @@ import { ExperienceCard } from "@/components/ui";
 
 export default function WorkExperience() {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-[#0d0d0d]">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 lg:px-12 bg-[#0d0d0d]">
+      <div>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 tracking-tight">
           Work Experience
         </h2>
